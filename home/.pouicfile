@@ -1,0 +1,54 @@
+function proxy(){
+  echo -e "\nSet proxy..."
+  http_proxy=http://proxy-internet.localnet:3128
+  https_proxy=https://proxy-internet.localnet:3128
+  ftp_proxy=http://proxy-internet.localnet:3128
+  non_proxy=localhost,127.0.0.1,.priv.atos.fr,.sock
+  git config --global http.proxy http://proxy-internet.localnet:3128
+  git config --global https.proxy https://proxy-internet.localnet:3128
+  echo -e "\ndone"
+}
+
+function proxyoff(){
+  echo -e "\nUnset proxy..."
+  unset http_proxy;
+  unset https_proxy
+  unset ftp_proxy
+  git config --global --unset http.proxy
+  git config --global --unset https.proxy
+  echo -e "\ndone"
+}
+
+export JAVA_HOME=/usr/local/softs/jdk1.7.0_71
+export M2_HOME=/usr/local/softs/mvn
+export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
+
+
+alias 07='ssh a135205@gateway-fr.priv.atos.fr -t '\''ssh www@tppci007v -t '\''sudo -u umu -i'\'''\'''
+alias 08='ssh a135205@gateway-fr.priv.atos.fr -t '\''ssh www@tppci008v -t '\''sudo -u umu -i'\'''\'''
+alias INJ='ssh a135205@bdv04.elisa.net -t '\''ssh pilotage@tqsro001b'\'''
+alias RI='ssh a135205@gateway-fr.priv.atos.fr -t '\''ssh a135205@squmu0002ap -t '\''sudo -u umu -i; bash'\'''\'''
+alias RIT='ssh -L 8500:localhost:8500 a135205@gateway-fr.priv.atos.fr -t '\''ssh -L 8500:localhost:22 a135205@squmu0002ap'\'''
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias findinjava='find . -name *.java | xargs grep $1'
+alias gat='ssh a135205@gateway-fr.priv.atos.fr'
+alias gat02='ssh a135205@ypsgat02s.priv.atos.fr'
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+alias ls='ls --color=auto'
+alias tun12345='ssh -t -L 12345:localhost:12345 a135205@gateway-fr.priv.atos.fr '\''ssh -v -L 12345:localhost:12345 a135205@squmu0002ap'\'''
+alias tun12346='ssh -t -L 12346:localhost:12346 a135205@gateway-fr.priv.atos.fr '\''ssh -v -L 12346:localhost:12346 a135205@squmu0002ap'\'''
+alias soft='cd /usr/local/softs'
+alias dev='cd /home/pouic/development'
+alias tf='cd /home/pouic/development/techforum-website'
+
+alias tuntf='ssh -i /home/pouic/.ssh/bastion/id_rsa -t -v -L 12345:wpmuod05s.priv.atos.fr:22 a135205@ypsgat02s.priv.atos.fr'
+alias connectf='ssh -p 12345 root@localhost'
+alias soft='cd /usr/local/softs'
+
+killPort() {
+  lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9
+}
+. ~/.docker-profile
