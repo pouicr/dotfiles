@@ -1,0 +1,15 @@
+[user]
+	name        = Loïc Frering
+	email       = loic.frering@gmail.com
+[color]
+	ui          = true
+[alias]
+	st          = status -sb
+	lol         = log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit
+	lola        = log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit --all
+[help]
+	autocorrect = 1
+[push]
+	default = simple
+[credential]
+	helper = cache --timeout=3600

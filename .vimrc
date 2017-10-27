@@ -6,7 +6,7 @@ syntax on
 
 " Vundle
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " Bundles
@@ -37,6 +37,18 @@ Bundle 'godlygeek/tabular'
 Bundle 'garbas/vim-snipmate'
 Bundle 'tomtom/tlib_vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'rust-lang/rust.vim'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'benmills/vimux'
+Bundle 'mileszs/ack.vim'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'tpope/vim-endwise'
+Bundle 'mxw/vim-jsx'
+Bundle 'keith/swift.vim'
+Bundle 'cespare/vim-toml'
 
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
@@ -47,24 +59,31 @@ set encoding=utf-8
 " Backup and swap files
 set backupdir=~/.vim/backup//
 set directory=~/.vim/temp//
-set undodir=~/.vim/.undo//
+
+" More accessible leader key
+let mapleader = ','
+
+" Markdown shortcuts
+nnoremap <Leader>= yypVr=o<Esc>
+nnoremap <Leader>- yypVr-o<Esc>
 
 " Searching
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+nnoremap <space> :nohlsearch<cr>
 
 " Tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
 " Default colorscheme to solarized
-set background=dark
+set background=light
 let g:solarized_termcolors=256
 colorscheme solarized
+highlight clear SignColumn
 set cursorline
-" highlight Normal ctermfg=grey ctermbg=darkblue
 
 " Whitespace stuff
 set nowrap
@@ -87,13 +106,19 @@ map <C-l> <C-w>l
 " Avoid 'escaping' from home row
 imap jj <Esc>
 
-" Enable mouse use
-set mouse=a
-
-
 " Powerline
 let g:Powerline_symbols = 'compatible'
 
 " CtrlP
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode = 0 " don’t manage working directory
-let g:ctrlp_switch_buffer = 'et' "don't jump if the buffer is not in the current tab
+let g:ctrlp_switch_buffer = 'et' " don't jump if the buffer is not in the current tab
+
+" Vimux
+map <Leader>vt :call VimuxRunCommand("clear; make test")<CR>
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vx :VimuxInterruptRunner<CR>
+map <Leader>vz :call VimuxZoomRunner()<CR>
