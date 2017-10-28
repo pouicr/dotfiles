@@ -1,57 +1,67 @@
-set nocompatible
-set laststatus=2
-set number
-set ruler
-syntax on
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set shell=/bin/bash
 
-" Vundle
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
-" Bundles
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'vim-scripts/molokai'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'ervandew/supertab'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'edsono/vim-matchit'
-Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'pangloss/vim-javascript'
-Bundle 'tpope/vim-markdown'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-git'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'scrooloose/syntastic'
-Bundle 'vim-scripts/VimClojure'
-Bundle 'beyondwords/vim-twig'
-Bundle 'sjl/clam.vim'
-Bundle 'groenewege/vim-less'
-Bundle 'nono/vim-handlebars'
-Bundle 'vim-scripts/nginx.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'godlygeek/tabular'
-Bundle 'garbas/vim-snipmate'
-Bundle 'tomtom/tlib_vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'rust-lang/rust.vim'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'benmills/vimux'
-Bundle 'mileszs/ack.vim'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'tpope/vim-endwise'
-Bundle 'mxw/vim-jsx'
-Bundle 'keith/swift.vim'
-Bundle 'cespare/vim-toml'
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" load the plugin and indent settings for the detected filetype
-filetype plugin indent on
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" Plugins
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-scripts/molokai'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/ZoomWin'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-markdown'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-git'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'scrooloose/syntastic'
+Plugin 'beyondwords/vim-twig'
+Plugin 'sjl/clam.vim'
+Plugin 'groenewege/vim-less'
+Plugin 'nono/vim-handlebars'
+Plugin 'vim-scripts/nginx.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'godlygeek/tabular'
+Plugin 'garbas/vim-snipmate'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'rust-lang/rust.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'benmills/vimux'
+Plugin 'mileszs/ack.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'tpope/vim-endwise'
+Plugin 'mxw/vim-jsx'
+Plugin 'keith/swift.vim'
+Plugin 'cespare/vim-toml'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 " Set encoding
 set encoding=utf-8
@@ -122,3 +132,6 @@ map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 map <Leader>vz :call VimuxZoomRunner()<CR>
+
+" NERDTree
+map <F2> :NERDTreeToggle<CR>
