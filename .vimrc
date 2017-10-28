@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set shell=/bin/bash
-
+syntax on
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -89,7 +89,7 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
 " Default colorscheme to solarized
-set background=light
+set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 highlight clear SignColumn
