@@ -1,5 +1,5 @@
-
-# Link Zsh, Git, Vim and tmux configurations
+#!/bin/bash
+# Link Git, Vim and tmux configurations
 files=(".bash_profile" ".gitconfig" ".vim" ".vimrc" ".tmux.conf" ".bashrc")
 for file in "${files[@]}"; do
   if [[ -f "$HOME/$file" || -d "$HOME/$file" ]]; then
