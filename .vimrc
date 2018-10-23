@@ -63,6 +63,12 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" Set mouse
+set mouse=a
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
 " Set encoding
 set encoding=utf-8
 
@@ -71,7 +77,7 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/temp//
 
 " More accessible leader key
-let mapleader = ','
+let mapleader = '<'
 
 " Markdown shortcuts
 nnoremap <Leader>= yypVr=o<Esc>
@@ -90,7 +96,7 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
 " Default colorscheme to solarized
 set background=dark
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 colorscheme solarized
 highlight clear SignColumn
 set cursorline
@@ -135,3 +141,4 @@ map <Leader>vz :call VimuxZoomRunner()<CR>
 
 " NERDTree
 map <F2> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
