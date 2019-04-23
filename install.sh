@@ -1,6 +1,6 @@
 #!/bin/bash
 # Link Git, Vim and tmux configurations
-files=(".bash_profile" ".gitconfig" ".vim" ".vimrc" ".tmux.conf" ".bashrc")
+files=(".bash_profile" ".gitconfig" ".vimrc" ".tmux.conf" ".bashrc")
 for file in "${files[@]}"; do
   if [[ -f "$HOME/$file" || -d "$HOME/$file" ]]; then
     if [ "$1" = "-f" ]; then
