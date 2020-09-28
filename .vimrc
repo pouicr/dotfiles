@@ -62,8 +62,7 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
-" Set mouse
+"
 set mouse=a
 if &term =~ '^screen'
     " tmux knows the extended mouse mode
@@ -96,7 +95,7 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
 " Default colorscheme to solarized
 set background=dark
-"let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 colorscheme solarized
 highlight clear SignColumn
 set cursorline
