@@ -72,8 +72,8 @@ endif
 set encoding=utf-8
 
 " Backup and swap files
-set backupdir=~/.vim/backup//
-set directory=~/.vim/temp//
+"set backupdir=~/.vim/backup//
+"set directory=~/.vim/temp//
 
 " More accessible leader key
 let mapleader = '<'
